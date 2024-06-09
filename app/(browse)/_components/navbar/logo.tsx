@@ -15,6 +15,10 @@ export const Logo = () => {
         <div className=" bg-white rounded-full p-1">
           <Image src="/Yummy.svg" alt="videoApp" height={32} width={32}></Image>
         </div>
+        <div className={cn(font.className)}>
+          <p className="text-lg font-semibold">Video App</p>
+          <p className="text-xs text-muted-foreground ">Let&apos;s play</p>
+        </div>
       </div>
     </Link>
   );
