@@ -1,5 +1,6 @@
 "use client";
 
 export const Search = () => {
-  return <div>Search</div>;
+  console.log("I am logged here");
+  return <div></div>;
 };
