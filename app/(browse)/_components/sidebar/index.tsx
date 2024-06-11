@@ -1,7 +1,9 @@
+import { Wrapper } from "./wrapper";
+
 export const SideBar = () => {
   return (
     <>
-      <div>Sidebar</div>
+      <Wrapper>Sidebar</Wrapper>
     </>
   );
 };
