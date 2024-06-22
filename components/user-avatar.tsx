@@ -1,10 +1,11 @@
 import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "@/lib/utils";
-import { Skeleton } from "./ui/skeleton";
-import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
+import { Skeleton } from "@/components/ui/skeleton";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { LiveBadge } from "./live-badge";
 
-const avatarSize = cva("", {
+const avatarSizes = cva("", {
   variants: {
     size: {
       default: "h-8 w-8",
@@ -16,7 +17,7 @@ const avatarSize = cva("", {
   },
 });
 
-interface UserAvatarProps extends VariantProps<typeof avatarSize> {
+interface UserAvatarProps extends VariantProps<typeof avatarSizes> {
   username: string;
   imageUrl: string;
   isLive?: boolean;
@@ -37,7 +38,7 @@ export const UserAvatar = ({
       <Avatar
         className={cn(
           isLive && "ring-2 ring-rose-500 border-background",
-          avatarSize({ size })
+          avatarSizes({ size })
         )}
       >
         <AvatarImage src={imageUrl} className="object-cover" />
@@ -47,10 +48,18 @@ export const UserAvatar = ({
         </AvatarFallback>
         {canShowBadge && (
           <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2">
-            Live
+            <LiveBadge />
           </div>
         )}
       </Avatar>
     </div>
+  );
+};
+
+interface UserAvatarSkeletonProps extends VariantProps<typeof avatarSizes> {}
+
+export const UserAvatarSkeleton = ({ size }: UserAvatarSkeletonProps) => {
+  return (
+    <Skeleton className={cn("rounded-full", avatarSizes({ size }))}></Skeleton>
   );
 };
