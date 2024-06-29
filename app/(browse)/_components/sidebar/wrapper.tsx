@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 import { useSidebar } from "@/store/use-sidebar";
 
 import { useState, useEffect } from "react";
+import { useIsClient } from "usehooks-ts";
 
 import { ToggleSkeleton } from "./toggle";
 import { RecommendedSkeleton } from "./recommended";
@@ -11,11 +12,12 @@ interface WrapperProps {
   children: React.ReactNode;
 }
 export const Wrapper = ({ children }: WrapperProps) => {
-  const [isClient, setIsClient] = useState(false);
+  // const [isClient, setIsClient] = useState(false);
+  const isClient = useIsClient();
 
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
+  // useEffect(() => {
+  //   setIsClient(true);
+  // }, []);
 
   if (!isClient) {
     return (
