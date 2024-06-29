@@ -17,19 +17,19 @@ export const Wrapper = ({ children }: WrapperProps) => {
     setIsClient(true);
   }, []);
 
-  if (!isClient)
+  if (!isClient) {
     return (
-      <aside className="fixed left-0 flex flex-col lg:w-60 h-full bg-background border-r boder-[#2D2E35] z-50">
+      <aside className="fixed left-0 flex flex-col w-60 h-full bg-background border-r boder-[#2D2E35] z-50">
         <ToggleSkeleton />
         <RecommendedSkeleton />
       </aside>
     );
-
+  }
   const { collapsed } = useSidebar((state) => state);
   return (
     <aside
       className={cn(
-        "fixed left-0 flex flex-col lg:w-60 h-full bg-background border-r boder-[#2D2E35] z-50",
+        "fixed left-0 flex flex-col w-60 h-full bg-background border-r boder-[#2D2E35] z-50",
         collapsed && "w-[70px]"
       )}
     >
