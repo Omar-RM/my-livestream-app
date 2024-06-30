@@ -27,6 +27,7 @@
     "query-string": "^9.0.0",
     "react": "^18",
     "react-dom": "^18",
+    "sonner": "^1.5.0",
     "styled-components": "^6.1.11",
     "svix": "^1.24.0",
     "tailwind-merge": "^2.3.0",
